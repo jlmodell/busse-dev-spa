@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import axios from "axios";
 
 import SetDates from "../components/SetDates";
-import Card from "../components/Card";
+import Item from "../components/item";
 
 import { StoreContext } from "../context/Store";
 
@@ -36,8 +36,8 @@ export default function Items() {
     <>
       <SetDates />
       <div className="cards-container">
-        {state.customers.map((c, i) => (
-          <Card key={i} name={c.name} />
+        {state.items.map((c, i) => (
+          <Item key={i} name={c.name} />
         ))}
       </div>
     </>
