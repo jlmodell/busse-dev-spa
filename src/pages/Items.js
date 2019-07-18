@@ -6,8 +6,6 @@ import Card from "../components/Card";
 
 import { StoreContext } from "../context/Store";
 
-const BASE_URL = "http://busseinc.access.ly:9000/api/distinct/item/";
-
 export default function Items() {
   const [state, dispatch] = useContext(StoreContext);
 
@@ -18,7 +16,11 @@ export default function Items() {
   const FetchItems = async () => {
     try {
       const items = await axios
-        .get(`${BASE_URL}?start=${state.start}&end=${state.end}`)
+        .get(
+          `${process.env.REACT_APP_distinctItemsApiUrl}?start=${
+            state.start
+          }&end=${state.end}`
+        )
         .then(response => response.data[0].uniqueItem);
 
       dispatch({
