@@ -4,8 +4,6 @@ import { StoreContext } from "../context/Store";
 
 import Formol, { Field } from "formol";
 
-import "formol/lib/clean.css";
-
 export default function SetDates() {
   const [state, dispatch] = useContext(StoreContext);
 
@@ -20,14 +18,29 @@ export default function SetDates() {
       field: "end",
       value: end
     });
+    await dispatch({
+      type: "date_picker",
+      value: false
+    });
+  };
+
+  const datePickerClick = () => {
+    dispatch({
+      type: "date_picker",
+      value: !state.datePicker
+    });
   };
 
   return (
-    <div className="formol-container">
-      <Formol onSubmit={onSubmit}>
-        <Field type="date">Start</Field>
-        <Field type="date">End</Field>
-      </Formol>
+    <>
+      {state.datePicker && (
+        <div className="formol-container">
+          <Formol onSubmit={onSubmit}>
+            <Field type="date">Start</Field>
+            <Field type="date">End</Field>
+          </Formol>
+        </div>
+      )}
       {state.start && state.end && (
         <div className="dates-set">
           <table>
@@ -42,8 +55,9 @@ export default function SetDates() {
               </tr>
             </tbody>
           </table>
+          <button onClick={datePickerClick}>Change Dates</button>
         </div>
       )}
-    </div>
+    </>
   );
 }

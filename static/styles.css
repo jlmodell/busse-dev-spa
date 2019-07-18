@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   height: 100vh;
   font-family: sans-serif;
@@ -209,10 +210,31 @@ body {
 }
 
 .dates-set {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 1.25rem;
   font-weight: 500;
   font-family: sans-serif;
   padding-bottom: 1rem;
+}
+
+.dates-set td {
+  padding: 1rem 1.25rem;
+}
+
+.dates-set th {
+  padding-top: 1rem;
 }
 
 .navbar {
@@ -278,7 +300,7 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  color: gray;
+  color: black;
   font-size: 1.25rem;
   text-decoration: none;
   cursor: pointer;
@@ -286,8 +308,11 @@ a {
 }
 
 .navbar__navlinks li:hover,
-a:hover {
-  color: black;
+a:hover,
+li:active,
+a:active {
+  color: gray;
+  text-decoration: underline;
 }
 
 .navbar__navlinks ul {
@@ -417,5 +442,954 @@ li:hover {
   .toggle-button__display {
     display: none;
   }
+}
+
+.Formol_Field, .Formol_Field--type-checkbox-set .Formol_FieldSet__label, .Formol_Field--type-radio-set .Formol_FieldSet__label {
+  color: rgba(52, 31, 151, 0.35);
+  margin: 2em 0;
+  max-width: 100%;
+  width: fit-content;
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
+}
+
+.Formol_Field .Formol_Field__label, .Formol_Field--type-checkbox-set .Formol_FieldSet__label .Formol_Field__label, .Formol_Field--type-radio-set .Formol_FieldSet__label .Formol_Field__label {
+  border-color: rgba(52, 31, 151, 0.35);
+}
+
+.Formol_Field--required .Formol_Field__title::before {
+  content: '* ';
+}
+
+.Formol_Field--readOnly.Formol_Field--required .Formol_Field__title::before {
+  display: none;
+}
+
+.Formol_Field--readOnly .Formol_Field__title {
+  font-size: 0.7em;
+}
+
+.Formol_Field--readOnly .Formol_InputField, .Formol_Field--readOnly .Formol_TextAreaField, .Formol_Field--readOnly .Formol_PasswordField__wrapper, .Formol_Field--readOnly .Formol_FileField, .Formol_Field--readOnly .Formol_HTMLField {
+  background-color: transparent;
+  border-color: transparent;
+  color: #222f3e;
+  margin: 0;
+  padding: 0.75em 0;
+}
+
+.Formol_Field--readOnly .Formol_Field--type-date__element[type=date], .Formol_Field--readOnly .Formol_Field--type-time__element[type=date] {
+  -moz-appearance: textfield;
+  border: none;
+  -webkit-clip-path: inset(0 17px 0 0);
+          clip-path: inset(0 17px 0 0);
+  outline: none;
+  outline: 0;
+}
+
+.Formol_Field--disabled {
+  opacity: .75;
+}
+
+.Formol_Field--disabled .Formol_Field__label, .Formol_Field--disabled .Formol_Field__label * {
+  cursor: default;
+}
+
+.Formol_Field:hover, .Formol_Field--type-checkbox-set .Formol_FieldSet__label:hover, .Formol_Field--type-radio-set .Formol_FieldSet__label:hover {
+  color: #222f3e;
+}
+
+.Formol_Field:hover .Formol_Field__label, .Formol_Field--type-checkbox-set .Formol_FieldSet__label:hover .Formol_Field__label, .Formol_Field--type-radio-set .Formol_FieldSet__label:hover .Formol_Field__label {
+  border-color: #222f3e;
+}
+
+.Formol_Field--modified, .Formol_Field--modified:hover {
+  color: #222f3e;
+}
+
+.Formol_Field--modified .Formol_Field__label, .Formol_Field--modified:hover .Formol_Field__label {
+  border-color: #222f3e;
+}
+
+.Formol_Field--focus, .Formol_Field--focus:hover {
+  color: #341f97;
+}
+
+.Formol_Field--focus .Formol_Field__label, .Formol_Field--focus:hover .Formol_Field__label {
+  border-color: #341f97;
+}
+
+.Formol_Field--focus *:focus, .Formol_Field--focus:hover *:focus {
+  outline: transparent;
+}
+
+.Formol_Field--error, .Formol_Field--error:hover {
+  color: #e66767;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.Formol_Field--error .Formol_Field__label, .Formol_Field--error:hover .Formol_Field__label {
+  border-color: #e66767;
+}
+
+.Formol_Field__label {
+  color: inherit;
+}
+
+.Formol_Field__title {
+  color: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.85em;
+  -webkit-transition: color .2s;
+  transition: color .2s;
+  width: 100%;
+}
+
+.Formol_Field__title > svg {
+  margin-left: .5em;
+  min-width: 1em;
+}
+
+.Formol_Field__element, .Formol_Field--type-calendar .Formol_CalendarField, .Formol_HTMLField, .Formol_Field--type-select-menu .Formol_SelectMenuField, .Formol_Field--type-checkbox .Formol_Field__label, .Formol_Field--type-radio .Formol_Field__label, .Formol_Field--type-checkbox-set .Formol_FieldSet__label, .Formol_Field--type-radio-set .Formol_FieldSet__label, .Formol_FileField, .Formol_PasswordField__wrapper, .Formol_SwitchButton input[type='checkbox'] + label {
+  background-color: rgba(34, 47, 62, 0.01);
+  border: solid 1px;
+  border-color: inherit;
+  border-radius: .15em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: #222f3e;
+  font: inherit;
+  margin: .5em 0;
+  max-width: 100%;
+  padding: 0.75em;
+  -webkit-transition: border-color .2s;
+  transition: border-color .2s;
+}
+
+.Formol_Field__unit {
+  display: inline-block;
+  margin-left: .75em;
+}
+
+.Formol_Field__error-text {
+  font-size: 0.85em;
+  font-style: italic;
+}
+
+.Formol_Field__error-text::before {
+  background-color: currentColor;
+  content: '';
+  display: inline-block;
+  height: 1px;
+  margin-right: .5em;
+  vertical-align: middle;
+  width: 1em;
+}
+
+.Formol_Formol {
+  -webkit-box-shadow: -1px 0 0 transparent;
+          box-shadow: -1px 0 0 transparent;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #222f3e;
+  padding-left: 0;
+  font-size: 1em;
+  -webkit-transition: opacity 500ms ease-in, padding 250ms, -webkit-box-shadow 250ms 250ms;
+  transition: opacity 500ms ease-in, padding 250ms, -webkit-box-shadow 250ms 250ms;
+  transition: box-shadow 250ms 250ms, opacity 500ms ease-in, padding 250ms;
+  transition: box-shadow 250ms 250ms, opacity 500ms ease-in, padding 250ms, -webkit-box-shadow 250ms 250ms;
+}
+
+.Formol_Formol--errors {
+  -webkit-box-shadow: -1px 0 0 #e66767;
+          box-shadow: -1px 0 0 #e66767;
+  padding-left: 1em;
+}
+
+.Formol_Formol--loading {
+  opacity: .5;
+}
+
+.Formol_Formol .Formol_Formol__submit, .Formol_Formol .Formol_Formol__cancel {
+  cursor: pointer;
+  font: inherit;
+}
+
+.Formol_Formol .Formol_Formol__submit:disabled, .Formol_Formol .Formol_Formol__cancel:disabled {
+  cursor: not-allowed;
+}
+
+.Formol_Formol .Formol_Formol__submit {
+  margin-right: 1.5em;
+  margin-top: 2em;
+}
+
+.Formol_Formol .Formol_Formol__cancel {
+  background: 0;
+  border: 0;
+  font-size: 0.85em;
+  margin-bottom: 4em;
+  padding: 0;
+}
+
+.Formol_Inliner {
+  margin: -1em 0;
+}
+
+.Formol_Inliner .Formol_Field, .Formol_Inliner .Formol_Field--type-checkbox-set .Formol_FieldSet__label, .Formol_Field--type-checkbox-set .Formol_Inliner .Formol_FieldSet__label, .Formol_Inliner .Formol_Field--type-radio-set .Formol_FieldSet__label, .Formol_Field--type-radio-set .Formol_Inliner .Formol_FieldSet__label {
+  display: inline-block;
+  margin: 1em 0;
+  vertical-align: top;
+}
+
+.Formol_Inliner .Formol_Field:not(:last-of-type), .Formol_Inliner .Formol_Field--type-checkbox-set .Formol_FieldSet__label:not(:last-of-type), .Formol_Field--type-checkbox-set .Formol_Inliner .Formol_FieldSet__label:not(:last-of-type), .Formol_Inliner .Formol_Field--type-radio-set .Formol_FieldSet__label:not(:last-of-type), .Formol_Field--type-radio-set .Formol_Inliner .Formol_FieldSet__label:not(:last-of-type) {
+  margin-right: 1em;
+}
+
+.Formol_Field--type-calendar .Formol_CalendarField__field {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.Formol_Field--readOnly .Formol_CalendarField {
+  background-color: transparent;
+  border-color: transparent;
+  color: #222f3e;
+  margin: 0;
+  padding: 0.75em 0;
+}
+
+.Formol_HTMLField {
+  cursor: text;
+  padding: 0;
+  position: relative;
+  width: 50em;
+}
+
+.Formol_HTMLField__hidden-input {
+  bottom: 0;
+  height: 0;
+  left: 0;
+  margin: auto !important;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  width: 0;
+  z-index: -1;
+}
+
+.Formol_HTMLField .rdw-editor-wrapper {
+  border-color: inherit;
+}
+
+.Formol_HTMLField .rdw-editor-toolbar {
+  border-bottom-color: inherit;
+  margin-bottom: 0;
+  opacity: 1;
+  -webkit-transition: padding .35s, opacity .35s;
+  transition: padding .35s, opacity .35s;
+  -webkit-transition-delay: .65s;
+          transition-delay: .65s;
+}
+
+.Formol_HTMLField .rdw-editor-toolbar > * {
+  border-color: inherit;
+  margin-top: 0;
+  -webkit-transition: margin .5s;
+  transition: margin .5s;
+  -webkit-transition-delay: .25s;
+          transition-delay: .25s;
+}
+
+.Formol_HTMLField .rdw-editor-main .DraftEditor-root {
+  margin: 0;
+  max-height: 50vh;
+  min-height: 8em;
+  overflow: auto;
+  padding: 0 .75em;
+}
+
+.Formol_HTMLField .rdw-editor-main .DraftEditor-root .public-DraftEditorPlaceholder-root {
+  margin: 1em 0;
+}
+
+.Formol_HTMLField .rdw-editor-main .DraftEditor-root .public-DraftEditorPlaceholder-root, .Formol_HTMLField .rdw-editor-main .DraftEditor-root .DraftEditor-editorContainer {
+  z-index: 0;
+}
+
+.Formol_HTMLField .rdw-option-wrapper:hover {
+  border-color: #222f3e;
+}
+
+.Formol_HTMLField .rdw-option-active {
+  border-color: inherit;
+}
+
+.Formol_HTMLField img {
+  max-width: 100%;
+}
+
+.Formol_Field--type-html:not(.Formol_Field--focus) .rdw-editor-toolbar {
+  opacity: 0;
+  padding: 0;
+  position: relative;
+  -webkit-transition-delay: .65s;
+          transition-delay: .65s;
+  z-index: -1;
+}
+
+.Formol_Field--type-html:not(.Formol_Field--focus) .rdw-editor-toolbar > * {
+  margin-top: -5em;
+  -webkit-transition-delay: 1s;
+          transition-delay: 1s;
+}
+
+.Formol_Field--readOnly .rdw-editor-main .DraftEditor-root {
+  min-height: auto;
+}
+
+.Formol_Field--type-select-menu {
+  max-width: 100%;
+  width: 25em;
+}
+
+.Formol_Field--type-select-menu .Formol_SelectMenuField {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: inherit;
+  padding: 0;
+  position: relative;
+}
+
+.Formol_Field--type-select-menu .Formol_SelectMenuField__hidden-input {
+  bottom: 0;
+  height: 0;
+  left: 0;
+  margin: auto !important;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  width: 0;
+  z-index: -1;
+}
+
+.Formol_Field--type-select-menu .Formol_SelectMenuField__control {
+  border: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.Formol_Field--type-select-menu .Formol_SelectMenuField__menu {
+  border: solid 1px #341f97;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.Formol_Field--readOnly .Select-control {
+  background-color: transparent;
+  border-color: transparent;
+  color: #222f3e;
+  margin: 0;
+  padding: 0.75em 0;
+}
+
+.Formol_Field--readOnly .Select-value {
+  padding: 0 !important;
+}
+
+.Formol_Field--readOnly .Select.is-disabled > .Select-control {
+  background-color: transparent;
+}
+
+.Formol_Field--type-checkbox .Formol_Field__label, .Formol_Field--type-radio .Formol_Field__label, .Formol_Field--type-checkbox-set .Formol_FieldSet__label, .Formol_Field--type-radio-set .Formol_FieldSet__label {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: rgba(52, 31, 151, 0.35);
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-transition: color .2s, border-color .2s;
+  transition: color .2s, border-color .2s;
+}
+
+.Formol_Field--type-checkbox .Formol_Field__label--on, .Formol_Field--type-checkbox .Formol_Field__label--on:hover, .Formol_Field--type-radio .Formol_Field__label--on, .Formol_Field--type-radio .Formol_Field__label--on:hover, .Formol_Field--type-checkbox-set .Formol_FieldSet__label--on, .Formol_Field--type-checkbox-set .Formol_FieldSet__label--on:hover, .Formol_Field--type-radio-set .Formol_FieldSet__label--on, .Formol_Field--type-radio-set .Formol_FieldSet__label--on:hover {
+  color: #222f3e;
+}
+
+.Formol_Field--type-checkbox .Formol_Field__title, .Formol_Field--type-radio .Formol_Field__title, .Formol_Field--type-checkbox-set .Formol_FieldSet__title, .Formol_Field--type-radio-set .Formol_FieldSet__title {
+  font-size: 1em;
+  margin-left: .5em;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+.Formol_Field--type-checkbox-set .Formol_FieldSet, .Formol_Field--type-radio-set .Formol_FieldSet {
+  border: 0;
+  margin: .5em 0;
+  padding: 0;
+}
+
+.Formol_Field--type-checkbox-set .Formol_FieldSet__label--focus, .Formol_Field--type-checkbox-set .Formol_FieldSet__label--focus:hover, .Formol_Field--type-radio-set .Formol_FieldSet__label--focus, .Formol_Field--type-radio-set .Formol_FieldSet__label--focus:hover {
+  color: #341f97;
+}
+
+.Formol_Field--type-checkbox-set .Formol_FieldSet .Formol_FieldSet__label, .Formol_Field--type-radio-set .Formol_FieldSet .Formol_FieldSet__label {
+  margin: 0 calc(2em / 2) calc(2em / 2) 0;
+}
+
+.Formol_BooleanField {
+  margin: 0;
+}
+
+.Formol_Field--type-checkbox.Formol_Field--readOnly .Formol_Field__label, .Formol_Field--type-radio.Formol_Field--readOnly .Formol_Field__label, .Formol_Field--type-checkbox-set.Formol_Field--readOnly .Formol_FieldSet__label, .Formol_Field--type-radio-set.Formol_Field--readOnly .Formol_FieldSet__label {
+  display: none;
+}
+
+.Formol_Field--type-checkbox.Formol_Field--readOnly .Formol_Field__label--on, .Formol_Field--type-radio.Formol_Field--readOnly .Formol_Field__label--on, .Formol_Field--type-checkbox-set.Formol_Field--readOnly .Formol_FieldSet__label--on, .Formol_Field--type-radio-set.Formol_Field--readOnly .Formol_FieldSet__label--on {
+  background-color: transparent;
+  border-color: transparent;
+  color: #222f3e;
+  margin: 0;
+  padding: 0.75em 0;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin: 0 calc(2em / 2) calc(2em / 2) 0;
+}
+
+.Formol_Field--type-checkbox.Formol_Field--disabled .Formol_Field__label, .Formol_Field--type-radio.Formol_Field--disabled .Formol_Field__label, .Formol_Field--type-checkbox-set.Formol_Field--disabled .Formol_FieldSet__label, .Formol_Field--type-radio-set.Formol_Field--disabled .Formol_FieldSet__label {
+  cursor: default;
+}
+
+.Formol_Field--type-color .Formol_Field__element, .Formol_Field--type-color .Formol_Field--type-calendar .Formol_CalendarField, .Formol_Field--type-calendar .Formol_Field--type-color .Formol_CalendarField, .Formol_Field--type-color .Formol_HTMLField, .Formol_Field--type-color .Formol_Field--type-select-menu .Formol_SelectMenuField, .Formol_Field--type-select-menu .Formol_Field--type-color .Formol_SelectMenuField, .Formol_Field--type-color .Formol_Field--type-checkbox .Formol_Field__label, .Formol_Field--type-checkbox .Formol_Field--type-color .Formol_Field__label, .Formol_Field--type-color .Formol_Field--type-radio .Formol_Field__label, .Formol_Field--type-radio .Formol_Field--type-color .Formol_Field__label, .Formol_Field--type-color .Formol_Field--type-checkbox-set .Formol_FieldSet__label, .Formol_Field--type-checkbox-set .Formol_Field--type-color .Formol_FieldSet__label, .Formol_Field--type-color .Formol_Field--type-radio-set .Formol_FieldSet__label, .Formol_Field--type-radio-set .Formol_Field--type-color .Formol_FieldSet__label, .Formol_Field--type-color .Formol_FileField, .Formol_Field--type-color .Formol_PasswordField__wrapper, .Formol_Field--type-color .Formol_SwitchButton input[type='checkbox'] + label, .Formol_SwitchButton .Formol_Field--type-color input[type='checkbox'] + label {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  cursor: pointer;
+  height: 1.5em;
+  width: 1.5em;
+}
+
+.Formol_Field--type-color.Formol_Field--disabled .Formol_Field__element, .Formol_Field--type-color.Formol_Field--disabled .Formol_Field--type-calendar .Formol_CalendarField, .Formol_Field--type-calendar .Formol_Field--type-color.Formol_Field--disabled .Formol_CalendarField, .Formol_Field--type-color.Formol_Field--disabled .Formol_HTMLField, .Formol_Field--type-color.Formol_Field--disabled .Formol_Field--type-select-menu .Formol_SelectMenuField, .Formol_Field--type-select-menu .Formol_Field--type-color.Formol_Field--disabled .Formol_SelectMenuField, .Formol_Field--type-color.Formol_Field--disabled .Formol_Field--type-checkbox .Formol_Field__label, .Formol_Field--type-checkbox .Formol_Field--type-color.Formol_Field--disabled .Formol_Field__label, .Formol_Field--type-color.Formol_Field--disabled .Formol_Field--type-radio .Formol_Field__label, .Formol_Field--type-radio .Formol_Field--type-color.Formol_Field--disabled .Formol_Field__label, .Formol_Field--type-color.Formol_Field--disabled .Formol_Field--type-checkbox-set .Formol_FieldSet__label, .Formol_Field--type-checkbox-set .Formol_Field--type-color.Formol_Field--disabled .Formol_FieldSet__label, .Formol_Field--type-color.Formol_Field--disabled .Formol_Field--type-radio-set .Formol_FieldSet__label, .Formol_Field--type-radio-set .Formol_Field--type-color.Formol_Field--disabled .Formol_FieldSet__label, .Formol_Field--type-color.Formol_Field--disabled .Formol_FileField, .Formol_Field--type-color.Formol_Field--disabled .Formol_PasswordField__wrapper, .Formol_Field--type-color.Formol_Field--disabled .Formol_SwitchButton input[type='checkbox'] + label, .Formol_SwitchButton .Formol_Field--type-color.Formol_Field--disabled input[type='checkbox'] + label {
+  cursor: default;
+}
+
+.Formol_Field--type-file {
+  max-width: 100%;
+  width: 50em;
+}
+
+.Formol_FileField {
+  border-style: dashed;
+  color: inherit;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+
+.Formol_FileField__hidden-input {
+  bottom: 0;
+  height: 0;
+  left: 0;
+  margin: auto !important;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  width: 0;
+  z-index: -1;
+}
+
+.Formol_FileField__dropzone > input[type="file"] {
+  display: block !important;
+  bottom: 0;
+  height: 0;
+  left: 0;
+  margin: auto !important;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  width: 0;
+  z-index: -1;
+}
+
+.Formol_FileField__placeholder {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-transition: color .2s;
+  transition: color .2s;
+  width: 100%;
+}
+
+.Formol_FileField__placeholder > svg {
+  display: block;
+  font-size: 2em;
+  margin: 1em auto .1em;
+  width: 100%;
+}
+
+.Formol_FileField__placeholder > span {
+  display: block;
+  font-size: 0.85em;
+  margin: 0 auto 3em;
+}
+
+.Formol_FileField__previews {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.Formol_FileField__preview {
+  border: solid 1px;
+  margin: 1em;
+  min-width: 8em;
+  max-width: 10em;
+  position: relative;
+  color: #222f3e;
+}
+
+.Formol_FileField__preview img {
+  max-width: 100%;
+}
+
+.Formol_FileField__preview-caption {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-top: solid 1px;
+  font-size: 0.75em;
+  padding: .5em;
+}
+
+.Formol_FileField__preview-name, .Formol_FileField__preview-size, .Formol_FileField__preview-type {
+  display: block;
+  margin: .25rem .5rem;
+}
+
+.Formol_FileField__preview-name {
+  line-height: 1.5;
+  max-height: calc(1em * 1.5);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-transition: max-height .25s;
+  transition: max-height .25s;
+  width: calc(100% - 1rem);
+}
+
+.Formol_FileField__preview-name:hover {
+  max-height: 10em;
+}
+
+.Formol_FileField__preview--error {
+  color: #e66767;
+}
+
+.Formol_FileField__close {
+  border: solid 1px;
+  cursor: pointer;
+  font-size: 0;
+  background-color: #fff;
+  padding: 0;
+  position: absolute;
+  right: -1px;
+  top: -1px;
+  -webkit-transition: background-color .25s;
+  transition: background-color .25s;
+}
+
+.Formol_FileField__close svg {
+  font-size: 1rem;
+  margin: .5em;
+}
+
+.Formol_FileField__image-delete {
+  min-height: 3em;
+}
+
+.Formol_Field--readOnly .Formol_FileField__preview {
+  margin-left: 0;
+  margin-top: 0;
+}
+
+.Formol_Field--readOnly.Formol_Field--type-number .Formol_Field__element[type=number], .Formol_Field--readOnly.Formol_Field--type-number .Formol_Field--type-calendar .Formol_CalendarField[type=number], .Formol_Field--type-calendar .Formol_Field--readOnly.Formol_Field--type-number .Formol_CalendarField[type=number], .Formol_Field--readOnly.Formol_Field--type-number .Formol_HTMLField[type=number], .Formol_Field--readOnly.Formol_Field--type-number .Formol_Field--type-select-menu .Formol_SelectMenuField[type=number], .Formol_Field--type-select-menu .Formol_Field--readOnly.Formol_Field--type-number .Formol_SelectMenuField[type=number], .Formol_Field--readOnly.Formol_Field--type-number .Formol_Field--type-checkbox .Formol_Field__label[type=number], .Formol_Field--type-checkbox .Formol_Field--readOnly.Formol_Field--type-number .Formol_Field__label[type=number], .Formol_Field--readOnly.Formol_Field--type-number .Formol_Field--type-radio .Formol_Field__label[type=number], .Formol_Field--type-radio .Formol_Field--readOnly.Formol_Field--type-number .Formol_Field__label[type=number], .Formol_Field--readOnly.Formol_Field--type-number .Formol_Field--type-checkbox-set .Formol_FieldSet__label[type=number], .Formol_Field--type-checkbox-set .Formol_Field--readOnly.Formol_Field--type-number .Formol_FieldSet__label[type=number], .Formol_Field--readOnly.Formol_Field--type-number .Formol_Field--type-radio-set .Formol_FieldSet__label[type=number], .Formol_Field--type-radio-set .Formol_Field--readOnly.Formol_Field--type-number .Formol_FieldSet__label[type=number], .Formol_Field--readOnly.Formol_Field--type-number .Formol_FileField[type=number], .Formol_Field--readOnly.Formol_Field--type-number .Formol_PasswordField__wrapper[type=number], .Formol_Field--readOnly.Formol_Field--type-number .Formol_SwitchButton input[type='checkbox'] + label[type=number], .Formol_SwitchButton .Formol_Field--readOnly.Formol_Field--type-number input[type='checkbox'] + label[type=number] {
+  -moz-appearance: textfield;
+}
+
+.Formol_PasswordField {
+  width: calc(100% - 1.75em);
+}
+
+.Formol_PasswordField__wrapper {
+  cursor: text;
+  max-width: 100%;
+  position: relative;
+}
+
+.Formol_PasswordField__wrapper .Formol_Field__element, .Formol_PasswordField__wrapper .Formol_Field--type-calendar .Formol_CalendarField, .Formol_Field--type-calendar .Formol_PasswordField__wrapper .Formol_CalendarField, .Formol_PasswordField__wrapper .Formol_HTMLField, .Formol_PasswordField__wrapper .Formol_Field--type-select-menu .Formol_SelectMenuField, .Formol_Field--type-select-menu .Formol_PasswordField__wrapper .Formol_SelectMenuField, .Formol_PasswordField__wrapper .Formol_Field--type-checkbox .Formol_Field__label, .Formol_Field--type-checkbox .Formol_PasswordField__wrapper .Formol_Field__label, .Formol_PasswordField__wrapper .Formol_Field--type-radio .Formol_Field__label, .Formol_Field--type-radio .Formol_PasswordField__wrapper .Formol_Field__label, .Formol_PasswordField__wrapper .Formol_Field--type-checkbox-set .Formol_FieldSet__label, .Formol_Field--type-checkbox-set .Formol_PasswordField__wrapper .Formol_FieldSet__label, .Formol_PasswordField__wrapper .Formol_Field--type-radio-set .Formol_FieldSet__label, .Formol_Field--type-radio-set .Formol_PasswordField__wrapper .Formol_FieldSet__label, .Formol_PasswordField__wrapper .Formol_FileField, .Formol_PasswordField__wrapper .Formol_PasswordField__wrapper, .Formol_PasswordField__wrapper .Formol_SwitchButton input[type='checkbox'] + label, .Formol_SwitchButton .Formol_PasswordField__wrapper input[type='checkbox'] + label {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.Formol_PasswordField__eye {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  opacity: .75;
+  padding: 0;
+  position: absolute;
+  right: .25em;
+  -webkit-transition: opacity .2s;
+  transition: opacity .2s;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  top: 50%;
+  z-index: 2;
+}
+
+.Formol_PasswordField__eye svg {
+  background-color: rgba(52, 31, 151, 0.35);
+  border-radius: 100%;
+  padding: .45em;
+}
+
+.Formol_PasswordField__eye:hover {
+  opacity: 1;
+}
+
+.Formol_PasswordStrengthField__description {
+  font-size: 0.85em;
+  margin: .35em 0;
+  -webkit-transition: color 250ms;
+  transition: color 250ms;
+}
+
+.Formol_PasswordStrengthField__strength {
+  height: .15em;
+  -webkit-transition: background-color 250ms, width 250ms;
+  transition: background-color 250ms, width 250ms;
+}
+
+.Formol_PasswordStrengthField--score-0 .Formol_PasswordStrengthField__strength {
+  background-color: rgba(52, 31, 151, 0.35);
+  width: 10%;
+}
+
+.Formol_PasswordStrengthField--score-0 .Formol_PasswordStrengthField__description {
+  color: rgba(52, 31, 151, 0.35);
+}
+
+.Formol_PasswordStrengthField--score-1 .Formol_PasswordStrengthField__strength {
+  background-color: rgba(52, 31, 151, 0.35);
+  width: 28%;
+}
+
+.Formol_PasswordStrengthField--score-1 .Formol_PasswordStrengthField__description {
+  color: rgba(52, 31, 151, 0.35);
+}
+
+.Formol_PasswordStrengthField--score-2 .Formol_PasswordStrengthField__strength {
+  background-color: #222f3e;
+  width: 46%;
+}
+
+.Formol_PasswordStrengthField--score-2 .Formol_PasswordStrengthField__description {
+  color: #222f3e;
+}
+
+.Formol_PasswordStrengthField--score-3 .Formol_PasswordStrengthField__strength {
+  background-color: #222f3e;
+  width: 64%;
+}
+
+.Formol_PasswordStrengthField--score-3 .Formol_PasswordStrengthField__description {
+  color: #222f3e;
+}
+
+.Formol_PasswordStrengthField--score-4 .Formol_PasswordStrengthField__strength {
+  background-color: #341f97;
+  width: 82%;
+}
+
+.Formol_PasswordStrengthField--score-4 .Formol_PasswordStrengthField__description {
+  color: #341f97;
+}
+
+.Formol_PasswordStrengthField--score-5 .Formol_PasswordStrengthField__strength {
+  background-color: #341f97;
+  width: 100%;
+}
+
+.Formol_PasswordStrengthField--score-5 .Formol_PasswordStrengthField__description {
+  color: #341f97;
+}
+
+.Formol_Field--readOnly .Formol_PasswordStrengthField__strength, .Formol_Field--readOnly .Formol_PasswordStrengthField__description {
+  display: none;
+}
+
+.Formol_Preview {
+  display: block;
+  margin: 0 auto;
+  max-height: 15em;
+  max-width: 100%;
+}
+
+.Formol_Field--type-range .Formol_Field--focus {
+  color: #341f97;
+}
+
+.Formol_Field--type-range .Formol_Field__element, .Formol_Field--type-range .Formol_Field--type-calendar .Formol_CalendarField, .Formol_Field--type-calendar .Formol_Field--type-range .Formol_CalendarField, .Formol_Field--type-range .Formol_HTMLField, .Formol_Field--type-range .Formol_Field--type-select-menu .Formol_SelectMenuField, .Formol_Field--type-select-menu .Formol_Field--type-range .Formol_SelectMenuField, .Formol_Field--type-range .Formol_Field--type-checkbox .Formol_Field__label, .Formol_Field--type-checkbox .Formol_Field--type-range .Formol_Field__label, .Formol_Field--type-range .Formol_Field--type-radio .Formol_Field__label, .Formol_Field--type-radio .Formol_Field--type-range .Formol_Field__label, .Formol_Field--type-range .Formol_Field--type-checkbox-set .Formol_FieldSet__label, .Formol_Field--type-checkbox-set .Formol_Field--type-range .Formol_FieldSet__label, .Formol_Field--type-range .Formol_Field--type-radio-set .Formol_FieldSet__label, .Formol_Field--type-radio-set .Formol_Field--type-range .Formol_FieldSet__label, .Formol_Field--type-range .Formol_FileField, .Formol_Field--type-range .Formol_PasswordField__wrapper, .Formol_Field--type-range .Formol_SwitchButton input[type='checkbox'] + label, .Formol_SwitchButton .Formol_Field--type-range input[type='checkbox'] + label {
+  background-color: transparent;
+  color: inherit;
+}
+
+.Formol_RangeField {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 2em 0 calc(2em + 1.5em);
+}
+
+.Formol_RangeField__range {
+  border: 0;
+  padding: 0;
+}
+
+.Formol_RangeField__value-wrapper {
+  color: inherit;
+  margin: 0 .5em;
+  position: relative;
+  -webkit-transition: color .25s;
+  transition: color .25s;
+}
+
+.Formol_RangeField__value {
+  left: 0;
+  text-align: center;
+  top: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.Formol_RangeField__min, .Formol_RangeField__max {
+  font-size: 0.8em;
+}
+
+.Formol_Field--type-switch .Formol_Field__label > .Formol_Field__element, .Formol_Field--type-switch .Formol_Field--type-calendar .Formol_Field__label > .Formol_CalendarField, .Formol_Field--type-calendar .Formol_Field--type-switch .Formol_Field__label > .Formol_CalendarField, .Formol_Field--type-switch .Formol_Field__label > .Formol_HTMLField, .Formol_Field--type-switch .Formol_Field--type-select-menu .Formol_Field__label > .Formol_SelectMenuField, .Formol_Field--type-select-menu .Formol_Field--type-switch .Formol_Field__label > .Formol_SelectMenuField, .Formol_Field--type-switch .Formol_Field--type-checkbox .Formol_Field__label > .Formol_Field__label, .Formol_Field--type-checkbox .Formol_Field--type-switch .Formol_Field__label > .Formol_Field__label, .Formol_Field--type-switch .Formol_Field--type-radio .Formol_Field__label > .Formol_Field__label, .Formol_Field--type-radio .Formol_Field--type-switch .Formol_Field__label > .Formol_Field__label, .Formol_Field--type-switch .Formol_Field--type-checkbox-set .Formol_Field__label > .Formol_FieldSet__label, .Formol_Field--type-checkbox-set .Formol_Field--type-switch .Formol_Field__label > .Formol_FieldSet__label, .Formol_Field--type-switch .Formol_Field--type-radio-set .Formol_Field__label > .Formol_FieldSet__label, .Formol_Field--type-radio-set .Formol_Field--type-switch .Formol_Field__label > .Formol_FieldSet__label, .Formol_Field--type-switch .Formol_Field__label > .Formol_FileField, .Formol_Field--type-switch .Formol_Field__label > .Formol_PasswordField__wrapper, .Formol_Field--type-switch .Formol_SwitchButton .Formol_Field__label > input[type='checkbox'] + label, .Formol_SwitchButton .Formol_Field--type-switch .Formol_Field__label > input[type='checkbox'] + label {
+  background-color: transparent;
+  border: 0;
+  color: inherit;
+  margin: .75em 0;
+  padding: 0;
+}
+
+.Formol_Field--type-switch .Formol_Field__label--on {
+  color: #222f3e;
+}
+
+.Formol_Field--type-switch .Formol_Field__label--on input[type='checkbox'] + label::after {
+  color: #341f97;
+}
+
+.Formol_Field--type-switch label {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.Formol_SwitchButton {
+  position: relative;
+  margin: 1em 0;
+}
+
+.Formol_SwitchButton input[type='checkbox'] + label {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 1em !important;
+  color: inherit;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: 1.5em;
+  margin: 0 .5em;
+  padding: .25em;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  vertical-align: middle;
+  width: 3em;
+}
+
+.Formol_SwitchButton input[type='checkbox'] + label::after {
+  background-color: currentColor;
+  border-radius: 1em;
+  content: '';
+  display: block;
+  height: 1em;
+  -webkit-transition: all .4s;
+  transition: all .4s;
+  width: 1em;
+}
+
+.Formol_SwitchButton input[type='checkbox']:checked + label::after {
+  margin-left: 1.4em;
+}
+
+.Formol_SwitchButton input[type='checkbox'] {
+  bottom: 0;
+  height: 0;
+  left: 0;
+  margin: auto !important;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  width: 0;
+  z-index: -1;
+}
+
+.Formol_Field--type-area .Formol_Field__element, .Formol_Field--type-area .Formol_Field--type-calendar .Formol_CalendarField, .Formol_Field--type-calendar .Formol_Field--type-area .Formol_CalendarField, .Formol_Field--type-area .Formol_HTMLField, .Formol_Field--type-area .Formol_Field--type-select-menu .Formol_SelectMenuField, .Formol_Field--type-select-menu .Formol_Field--type-area .Formol_SelectMenuField, .Formol_Field--type-area .Formol_Field--type-checkbox .Formol_Field__label, .Formol_Field--type-checkbox .Formol_Field--type-area .Formol_Field__label, .Formol_Field--type-area .Formol_Field--type-radio .Formol_Field__label, .Formol_Field--type-radio .Formol_Field--type-area .Formol_Field__label, .Formol_Field--type-area .Formol_Field--type-checkbox-set .Formol_FieldSet__label, .Formol_Field--type-checkbox-set .Formol_Field--type-area .Formol_FieldSet__label, .Formol_Field--type-area .Formol_Field--type-radio-set .Formol_FieldSet__label, .Formol_Field--type-radio-set .Formol_Field--type-area .Formol_FieldSet__label, .Formol_Field--type-area .Formol_FileField, .Formol_Field--type-area .Formol_PasswordField__wrapper, .Formol_Field--type-area .Formol_SwitchButton input[type='checkbox'] + label, .Formol_SwitchButton .Formol_Field--type-area input[type='checkbox'] + label {
+  max-width: 100%;
+  width: 50em;
+}
+
+.Formol_Field:hover .Formol_Field__title::after, .Formol_Field--type-checkbox-set .Formol_FieldSet__label:hover .Formol_Field__title::after, .Formol_Field--type-radio-set .Formol_FieldSet__label:hover .Formol_Field__title::after, .Formol_Field--modified .Formol_Field__title::after, .Formol_Field--focus .Formol_Field__title::after, .Formol_Field--error .Formol_Field__title::after {
+  opacity: 1;
+}
+
+.Formol_Field__title::after {
+  color: inherit;
+  content: '•';
+  display: inline-block;
+  font-size: 1.75em;
+  line-height: 0;
+  margin-left: .25em;
+  opacity: .15;
+  -webkit-transition: opacity .2s;
+  transition: opacity .2s;
+  vertical-align: middle;
+}
+
+.Formol_Field__element, .Formol_Field--type-calendar .Formol_CalendarField, .Formol_HTMLField, .Formol_Field--type-select-menu .Formol_SelectMenuField, .Formol_Field--type-checkbox .Formol_Field__label, .Formol_Field--type-radio .Formol_Field__label, .Formol_Field--type-checkbox-set .Formol_FieldSet__label, .Formol_Field--type-radio-set .Formol_FieldSet__label, .Formol_FileField, .Formol_PasswordField__wrapper, .Formol_SwitchButton input[type='checkbox'] + label {
+  border-width: 0;
+  border-bottom-width: 2px;
+  border-radius: 0;
+  -webkit-transition: background-color .2s, border-color .2s;
+  transition: background-color .2s, border-color .2s;
+}
+
+.Formol_Formol {
+  font-family: sans-serif;
+}
+
+.Formol_Field--type-switch input[type='checkbox'] + label {
+  border: solid 2px;
+}
+
+.Formol_Field__element, .Formol_Field--type-calendar .Formol_CalendarField, .Formol_HTMLField, .Formol_Field--type-select-menu .Formol_SelectMenuField, .Formol_Field--type-checkbox .Formol_Field__label, .Formol_Field--type-radio .Formol_Field__label, .Formol_Field--type-checkbox-set .Formol_FieldSet__label, .Formol_Field--type-radio-set .Formol_FieldSet__label, .Formol_FileField, .Formol_PasswordField__wrapper, .Formol_SwitchButton input[type='checkbox'] + label,
+.Formol_Field--type-calendar .Formol_CalendarField,
+.Formol_HTMLField,
+.Formol_Field--type-select-menu .Formol_SelectMenuField,
+.Formol_Field--type-checkbox .Formol_Field__label,
+.Formol_Field--type-radio .Formol_Field__label,
+.Formol_Field--type-checkbox-set .Formol_FieldSet__label,
+.Formol_Field--type-radio-set .Formol_FieldSet__label,
+.Formol_FileField,
+.Formol_PasswordField__wrapper,
+.Formol_SwitchButton input[type="checkbox"] + label {
+  background-color: white;
+  border: solid 1px;
+  border-color: inherit;
+  border-radius: 0.15em;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #222f3e;
+  font: inherit;
+  margin: 0.5em 0;
+  max-width: 100%;
+  padding: 1.5em;
+  -webkit-transition: border-color 0.2s;
+  transition: border-color 0.2s;
+}
+
+.Formol_Field .Formol_Field__label, .Formol_Field--type-checkbox-set .Formol_FieldSet__label .Formol_Field__label, .Formol_Field--type-radio-set .Formol_FieldSet__label .Formol_Field__label,
+.Formol_Field--type-checkbox-set .Formol_FieldSet__label .Formol_Field__label,
+.Formol_Field--type-radio-set .Formol_FieldSet__label .Formol_Field__label {
+  border-color: lightblue;
+}
+
+.Formol_Field, .Formol_Field--type-checkbox-set .Formol_FieldSet__label, .Formol_Field--type-radio-set .Formol_FieldSet__label,
+.Formol_Field--type-checkbox-set .Formol_FieldSet__label,
+.Formol_Field--type-radio-set .Formol_FieldSet__label {
+  color: black;
+  margin: 2em 0;
+  max-width: 100%;
+  width: fit-content;
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
+}
+
+.Formol_Field--focus, .Formol_Field--focus:hover {
+  color: black;
+}
+
+.Formol_Field--focus .Formol_Field__label, .Formol_Field--focus:hover .Formol_Field__label {
+  border-color: black;
+}
+
+.Formol_Formol .Formol_Formol__submit, .Formol_Formol .Formol_Formol__cancel {
+  cursor: pointer;
+  font: inherit;
+}
+
+.Formol_Formol .Formol_Formol__submit:disabled, .Formol_Formol .Formol_Formol__cancel:disabled {
+  cursor: not-allowed;
+}
+
+.Formol_Formol .Formol_Formol__submit {
+  margin-right: 2.75em;
+  margin-top: 2em;
+}
+
+.Formol_Formol .Formol_Formol__cancel {
+  background: 0;
+  border: 0;
+  font-size: 0.85em;
+  margin-bottom: 4em;
+  padding: 0;
 }
 /*# sourceMappingURL=styles.css.map */

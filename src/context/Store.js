@@ -6,6 +6,7 @@ const initialState = {
   customers: [],
   items: [],
   dates: false,
+  datePicker: true,
   start: "",
   end: ""
 };
@@ -27,6 +28,11 @@ const StoreReducer = (state, action) => {
         ...state,
         [action.field]: action.value,
         dates: true
+      };
+    case "date_picker":
+      return {
+        ...state,
+        datePicker: action.value
       };
     default:
       throw new Error("You must include a type and payload");
