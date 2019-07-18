@@ -6,7 +6,7 @@ Routes are protected by Auth0.
 
 Forms are built using Formol.
 
-Backend is an express server serving data from a mongodb db.
+Backend is an express server serving data from a mongo db.
 
 Linked with github.com/jlmodell/busse-dev-spa
 
