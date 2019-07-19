@@ -19,7 +19,11 @@ const Header = props => {
         </div>
         <div className="spacer" />
         <div className="navbar-navlink-logo">
-          <img src={logo} alt="Busse Hospital Disposables" />
+          <img
+            className="navbar-logo"
+            src={logo}
+            alt="Busse Hospital Disposables"
+          />
         </div>
         <div className="spacer" />
         <div className="navbar__navlinks">

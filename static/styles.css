@@ -183,7 +183,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  min-height: 98vh;
+  min-height: 99vh;
   max-width: 100%;
 }
 
@@ -241,11 +241,13 @@ body {
   position: top;
   padding: 0;
   width: 100%;
+  min-width: 100px;
   top: 0;
   left: 0;
   display: fixed;
-  height: 75px;
-  background-color: lightblue;
+  height: 64px;
+  background-image: -webkit-gradient(linear, left top, right top, from(lightblue), to(lightgray));
+  background-image: linear-gradient(to right, lightblue, lightgray);
 }
 
 .navbar__navigation {
@@ -267,8 +269,8 @@ body {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  height: 75px;
-  width: 60px;
+  height: 64px;
+  width: 40px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -278,8 +280,8 @@ body {
 }
 
 .toggle-button__line {
-  width: 60px;
-  height: 6px;
+  width: 40px;
+  height: 5px;
   background-color: white;
 }
 
@@ -291,6 +293,24 @@ body {
 
 .navbar-navlink-logo {
   padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbar-logo {
+  height: 2.5rem;
+}
+
+.navbar__navlinks ul {
+  padding: 0;
+  margin: 0;
 }
 
 .navbar__navlinks li,
@@ -311,8 +331,7 @@ a {
 a:hover,
 li:active,
 a:active {
-  color: gray;
-  text-decoration: underline;
+  color: white;
 }
 
 .navbar__navlinks ul {
@@ -340,10 +359,12 @@ a:active {
   z-index: 200;
   -webkit-transform: translate(-100%);
           transform: translate(-100%);
-  -webkit-transition: -webkit-transform 0.3ms ease;
-  transition: -webkit-transform 0.3ms ease;
-  transition: transform 0.3ms ease;
-  transition: transform 0.3ms ease, -webkit-transform 0.3ms ease;
+  -webkit-transition: -webkit-transform 0.6ms ease;
+  transition: -webkit-transform 0.6ms ease;
+  transition: transform 0.6ms ease;
+  transition: transform 0.6ms ease, -webkit-transform 0.6ms ease;
+  background-image: -webkit-gradient(linear, left top, right top, from(lightblue), to(white));
+  background-image: linear-gradient(to right, lightblue, white);
 }
 
 .side-drawer.open {
@@ -351,8 +372,7 @@ a:active {
           transform: translateX(0);
 }
 
-.side-drawer__links ul {
-  list-style: none;
+.side-drawer__links {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -360,6 +380,15 @@ a:active {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.side-drawer__links ul {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 2rem 2rem;
 }
 
 .side-drawer__links a,
@@ -369,16 +398,15 @@ li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  color: gray;
+  color: black;
   font-size: 1.25rem;
   text-decoration: none;
   cursor: pointer;
-  margin-right: 1rem;
 }
 
 .side-drawer__links a:hover,
 li:hover {
-  color: black;
+  color: white;
 }
 
 .backdrop {
@@ -395,10 +423,10 @@ li:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -406,11 +434,18 @@ li:hover {
       -ms-flex-pack: center;
           justify-content: center;
   font-size: 0.85rem;
-  background-color: lightblue;
+  background-image: -webkit-gradient(linear, left top, right top, from(lightblue), to(lightgray));
+  background-image: linear-gradient(to right, lightblue, lightgray);
 }
 
 .footer a {
   text-decoration: none;
+  font-size: 0.85rem;
+  color: black;
+  padding: 0 0 0 1rem;
+}
+
+.footer a:hover {
   color: white;
 }
 
@@ -430,6 +465,11 @@ li:hover {
       -ms-flex-align: center;
           align-items: center;
   justify-items: center;
+  margin: 5rem;
+}
+
+.home-logo {
+  height: 5rem;
 }
 
 @media (max-width: 768px) {

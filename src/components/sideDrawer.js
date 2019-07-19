@@ -15,6 +15,7 @@ const SideDrawer = props => {
     <nav className={drawer}>
       <div className="side-drawer__links">
         <ul>
+          <div className="spacer" />
           <li onClick={props.click}>
             <Link to="/">Home</Link>
           </li>
@@ -38,6 +39,7 @@ const SideDrawer = props => {
               </li>
             </>
           )}
+          <div className="spacer" />
         </ul>
       </div>
     </nav>

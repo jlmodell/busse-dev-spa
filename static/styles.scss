@@ -133,7 +133,7 @@ body {
   padding: 0;
   display: flex;
   flex-direction: column;
-  min-height: 98vh;
+  min-height: 99vh;
   max-width: 100%;
 }
 
@@ -171,11 +171,12 @@ body {
   position: top;
   padding: 0;
   width: 100%;
+  min-width: 100px;
   top: 0;
   left: 0;
   display: fixed;
-  height: 75px;
-  background-color: lightblue;
+  height: 64px;
+  background-image: linear-gradient(to right, lightblue, lightgray);
 }
 
 .navbar__navigation {
@@ -188,8 +189,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 75px;
-  width: 60px;
+  height: 64px;
+  width: 40px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -198,8 +199,8 @@ body {
 }
 
 .toggle-button__line {
-  width: 60px;
-  height: 6px;
+  width: 40px;
+  height: 5px;
   background-color: white;
 }
 
@@ -209,6 +210,18 @@ body {
 
 .navbar-navlink-logo {
   padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-logo {
+  height: 2.5rem;
+}
+
+.navbar__navlinks ul {
+  padding: 0;
+  margin: 0;
 }
 
 .navbar__navlinks li,
@@ -227,8 +240,7 @@ a {
 a:hover,
 li:active,
 a:active {
-  color: gray;
-  text-decoration: underline;
+  color: white;
 }
 
 .navbar__navlinks ul {
@@ -248,17 +260,24 @@ a:active {
   max-width: 400px;
   z-index: 200;
   transform: translate(-100%);
-  transition: transform 0.3ms ease;
+  transition: transform 0.6ms ease;
+  background-image: linear-gradient(to right, lightblue, white);
 }
 
 .side-drawer.open {
   transform: translateX(0);
 }
 
-.side-drawer__links ul {
-  list-style: none;
+.side-drawer__links {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+}
+
+.side-drawer__links ul {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 2rem 2rem;
 }
 
 .side-drawer__links a,
@@ -266,16 +285,15 @@ li {
   padding: 0;
   list-style: none;
   display: flex;
-  color: gray;
+  color: black;
   font-size: 1.25rem;
   text-decoration: none;
   cursor: pointer;
-  margin-right: 1rem;
 }
 
 .side-drawer__links a:hover,
 li:hover {
-  color: black;
+  color: white;
 }
 
 .backdrop {
@@ -290,15 +308,21 @@ li:hover {
 
 .footer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: 0.85rem;
-  background-color: lightblue;
+  background-image: linear-gradient(to right, lightblue, lightgray);
 }
 
 .footer a {
   text-decoration: none;
+  font-size: 0.85rem;
+  color: black;
+  padding: 0 0 0 1rem;
+}
+
+.footer a:hover {
   color: white;
 }
 
@@ -311,6 +335,11 @@ li:hover {
   flex-direction: column;
   align-items: center;
   justify-items: center;
+  margin: 5rem;
+}
+
+.home-logo {
+  height: 5rem;
 }
 
 @media (max-width: 768px) {

@@ -1,8 +1,10 @@
 import React from "react";
 
+import logo from "../../static/images/logo.png";
+
 const Home = () => (
   <div className="home">
-    <h1>Busse Hospital Disposables</h1>
+    <img className="home-logo" src={logo} alt="Busse Hospital Disposables" />
   </div>
 );
 
