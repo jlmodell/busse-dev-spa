@@ -78,6 +78,13 @@ body {
 
 .card-name:hover {
   background-color: #7bbbd1;
+  -webkit-transform: scale(2);
+          transform: scale(2);
+  -webkit-transition: -webkit-transform 0.25ms ease-in;
+  transition: -webkit-transform 0.25ms ease-in;
+  transition: transform 0.25ms ease-in;
+  transition: transform 0.25ms ease-in, -webkit-transform 0.25ms ease-in;
+  cursor: pointer;
 }
 
 .cards-container {

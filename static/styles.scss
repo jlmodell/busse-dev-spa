@@ -57,6 +57,9 @@ body {
 
 .card-name:hover {
   background-color: rgb(123, 187, 209);
+  transform: scale(2);
+  transition: transform 0.25ms ease-in;
+  cursor: pointer;
 }
 
 .cards-container {
