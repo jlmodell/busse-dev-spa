@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { Security, ImplicitCallback } from "@okta/okta-react";
+import { Security, SecureRoute, ImplicitCallback } from "@okta/okta-react";
 
 import App from "./App";
 import Customers from "./pages/Customers";
@@ -27,8 +27,8 @@ ReactDOM.render(
         <Layout>
           <Route path="/" exact component={App} />
           <Route path="/implicit/callback" component={ImplicitCallback} />
-          <Route path="/customers" exact component={Customers} />
-          <Route path="/items" exact component={Items} />
+          <SecureRoute path="/customers" component={Customers} />
+          <SecureRoute path="/items" component={Items} />
         </Layout>
       </Security>
     </Store>
