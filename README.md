@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 State is managed by the Context API.
 
-Routes are protected by Auth0.
+Routes are protected by okta dev-auth for spa.
 
 Forms are built using Formol.
 
