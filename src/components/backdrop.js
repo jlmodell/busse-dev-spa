@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-import StoreContext from "../context/Store";
+import { StoreContext } from "../context/Store";
 
 const Backdrop = () => {
   const [state, dispatch] = useContext(StoreContext);
