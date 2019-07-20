@@ -1,26 +1,37 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Auth0Provider } from "./context/react-auth0-wrapper";
-import App from "./App";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Security, ImplicitCallback } from "@okta/okta-react";
 
-const onRedirectCallback = appState => {
-  window.history.replaceState(
-    {},
-    document.title,
-    appState && appState.targetUrl
-      ? appState.targetUrl
-      : window.location.pathname
-  );
+import App from "./App";
+import Customers from "./pages/Customers";
+import Items from "./pages/Items";
+
+import Store from "./context/Store";
+import Layout from "./components/Layout";
+
+const config = {
+  issuer: process.env.REACT_APP_domain,
+  redirect_uri: window.location.origin + "/implicit/callback",
+  client_id: process.env.REACT_APP_clientid
 };
 
 ReactDOM.render(
-  <Auth0Provider
-    domain={process.env.REACT_APP_domain}
-    client_id={process.env.REACT_APP_clientId}
-    redirect_uri={window.location.origin}
-    onRedirectCallback={onRedirectCallback}
-  >
-    <App />
-  </Auth0Provider>,
+  <Router>
+    <Store>
+      <Security
+        issuer={config.issuer}
+        client_id={config.client_id}
+        redirect_uri={config.redirect_uri}
+      >
+        <Layout>
+          <Route path="/" exact component={App} />
+          <Route path="/implicit/callback" component={ImplicitCallback} />
+          <Route path="/customers" exact component={Customers} />
+          <Route path="/items" exact component={Items} />
+        </Layout>
+      </Security>
+    </Store>
+  </Router>,
   document.getElementById("root")
 );

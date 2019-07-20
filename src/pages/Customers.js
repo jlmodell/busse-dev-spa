@@ -6,7 +6,7 @@ import Cust from "../components/cust";
 
 import { StoreContext } from "../context/Store";
 
-export default function Customers() {
+const Customers = () => {
   const [state, dispatch] = useContext(StoreContext);
 
   useEffect(() => {
@@ -42,4 +42,6 @@ export default function Customers() {
       </div>
     </>
   );
-}
+};
+
+export default Customers;

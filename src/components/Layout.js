@@ -1,30 +1,27 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+
+import { StoreContext } from "../context/Store";
 
 import Header from "./header";
 import Footer from "./footer";
 import SideDrawer from "./sideDrawer";
 import Backdrop from "./backdrop";
-import Main from "./Main";
 
 const Layout = ({ children }) => {
-  const [isDrawerToggled, setIsDrawerToggled] = useState(false);
+  const [state] = useContext(StoreContext);
 
   let backdrop;
 
-  if (isDrawerToggled) {
-    backdrop = <Backdrop click={() => setIsDrawerToggled(false)} />;
+  if (state.isDrawerToggled) {
+    backdrop = <Backdrop />;
   }
 
   return (
     <div className="site-container">
       <div className="site-content">
-        <Header click={() => setIsDrawerToggled(!isDrawerToggled)} />
-        <SideDrawer
-          display={isDrawerToggled}
-          click={() => setIsDrawerToggled(!isDrawerToggled)}
-        />
+        <Header />
+        <SideDrawer />
         {backdrop}
-        <Main />
         {children}
       </div>
       <Footer />

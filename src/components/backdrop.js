@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 
-const Backdrop = props => {
+import StoreContext from "../context/Store";
+
+const Backdrop = () => {
+  const [state, dispatch] = useContext(StoreContext);
+
+  const handleBackdrop = () => {
+    dispatch({
+      type: "drawer_toggler",
+      value: false
+    });
+  };
+
   return (
     <>
-      <div className="backdrop" onClick={props.click} />
+      <div className="backdrop" onClick={handleBackdrop} />
     </>
   );
 };

@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { useAuth0 } from "../context/react-auth0-wrapper";
+import { useAuth } from "./auth";
+import { withAuth } from "@okta/okta-react";
 
-const SideDrawer = props => {
-  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+import { StoreContext } from "../context/Store";
+
+const SideDrawer = withAuth(({ auth }) => {
+  const [authenticated, user] = useAuth(auth);
+  const [state, dispatch] = useContext(StoreContext);
+
+  const drawerToggle = () => {
+    dispatch({
+      type: "drawer_toggler",
+      value: !state.isDrawerToggled
+    });
+  };
 
   let drawer = "side-drawer";
 
-  if (props.display) {
+  if (state.isDrawerToggled) {
     drawer = "side-drawer open";
   }
 
@@ -16,26 +27,26 @@ const SideDrawer = props => {
       <div className="side-drawer__links">
         <ul>
           <div className="spacer" />
-          <li onClick={props.click}>
+          <li onClick={drawerToggle}>
             <Link to="/">Home</Link>
           </li>
 
-          {!isAuthenticated && (
-            <li onClick={props.click}>
-              <p onClick={() => loginWithRedirect({})}>Log in</p>
+          {!authenticated && (
+            <li onClick={drawerToggle}>
+              <p onClick={() => auth.login()}>Log in</p>
             </li>
           )}
 
-          {isAuthenticated && (
+          {authenticated && (
             <>
-              <li onClick={props.click}>
+              <li onClick={drawerToggle}>
                 <Link to="/customers">By Customers</Link>
               </li>
-              <li onClick={props.click}>
+              <li onClick={drawerToggle}>
                 <Link to="/items">By Item</Link>
               </li>
-              <li onClick={props.click}>
-                <p onClick={() => logout()}>Log out</p>
+              <li onClick={drawerToggle}>
+                <p onClick={() => auth.logout()}>Log out</p>
               </li>
             </>
           )}
@@ -44,6 +55,6 @@ const SideDrawer = props => {
       </div>
     </nav>
   );
-};
+});
 
 export default SideDrawer;

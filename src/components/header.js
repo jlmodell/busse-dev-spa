@@ -1,17 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { useAuth0 } from "../context/react-auth0-wrapper";
+import { useAuth } from "./auth";
+import { withAuth } from "@okta/okta-react";
+
+import { StoreContext } from "../context/Store";
 
 import logo from "../../static/images/logo.png";
 
-const Header = props => {
-  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+const Header = withAuth(({ auth }) => {
+  const [authenticated, user] = useAuth(auth);
+  const [state, dispatch] = useContext(StoreContext);
+
+  const drawerToggle = () => {
+    dispatch({
+      type: "drawer_toggler",
+      value: !state.isDrawerToggled
+    });
+  };
 
   return (
     <header className="navbar">
       <nav className="navbar__navigation">
         <div className="toggle-button__display">
-          <button className="toggle-button" onClick={props.click}>
+          <button className="toggle-button" onClick={drawerToggle}>
             <div className="toggle-button__line" />
             <div className="toggle-button__line" />
             <div className="toggle-button__line" />
@@ -32,13 +43,13 @@ const Header = props => {
               <Link to="/">Home</Link>
             </li>
 
-            {!isAuthenticated && (
+            {!authenticated && (
               <li>
-                <p onClick={() => loginWithRedirect({})}>Log in</p>
+                <p onClick={() => auth.login()}>Log in</p>
               </li>
             )}
 
-            {isAuthenticated && (
+            {authenticated && (
               <>
                 <li>
                   <Link to="/customers">By Customers</Link>
@@ -47,7 +58,7 @@ const Header = props => {
                   <Link to="/items">By Item</Link>
                 </li>
                 <li>
-                  <p onClick={() => logout()}>Log out</p>
+                  <p onClick={() => auth.logout()}>Log out</p>
                 </li>
               </>
             )}
@@ -56,6 +67,6 @@ const Header = props => {
       </nav>
     </header>
   );
-};
+});
 
 export default Header;

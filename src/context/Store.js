@@ -8,7 +8,8 @@ const initialState = {
   dates: false,
   datePicker: true,
   start: "",
-  end: ""
+  end: "",
+  isDrawerToggled: false
 };
 
 const StoreReducer = (state, action) => {
@@ -33,6 +34,11 @@ const StoreReducer = (state, action) => {
       return {
         ...state,
         datePicker: action.value
+      };
+    case "drawer_toggler":
+      return {
+        ...state,
+        isDrawerToggled: action.value
       };
     default:
       throw new Error("You must include a type and payload");
