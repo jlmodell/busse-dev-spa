@@ -1,0 +1,14 @@
+{
+  "build": {
+    "env": {
+      "REACT_APP_clientid": "@react_app_clientid",
+      "REACT_APP_detailsApiUrl": "@react_app_detailsapiurl",
+      "REACT_APP_distinctCustomersApiUrl": "@react_app_distinctcustomersapiurl",
+      "REACT_APP_distinctItemsApiUrl": "@react_app_distinctitemsapiurl",
+      "REACT_APP_domain": "@react_app_domain",
+      "REACT_APP_itemDetailApiUrl": "@react_app_itemdetailapiurl",
+      "REACT_APP_itemSummaryApiUrl": "@react_app_itemsummaryapiurl",
+      "REACT_APP_summaryApiUrl": "@react_app_summaryapiurl"
+    }
+  }
+}
